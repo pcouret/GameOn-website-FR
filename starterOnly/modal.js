@@ -40,7 +40,7 @@ function validate(event) {
   const last = document.getElementById("last").value;
   if (last.length < 2) {
     
-    lastError.innerText = "Veuillez entrer 2 caractères ou plus pour le champ du prenom";
+    lastError.innerText = "Veuillez entrer 2 caractères ou plus pour le champ du nom";
   } else {
     lastError.innerText = "";
   }
