@@ -30,93 +30,68 @@ function launchModal() {
 function validate(event) {
   event.preventDefault();
   const first = document.getElementById("first").value;
-  console.log(first);
   if (first.length < 2) {
-    console.log("Veuillez entrer votre Prenom")
+    
     firstError.innerText = "Veuillez entrer 2 caractères ou plus pour le champ du prenom";
   } else {
-    console.log("Prénom OK")
-    first.innerText = "";
+    firstError.innerText = "";
   }
 
   const last = document.getElementById("last").value;
-  console.log(last);
   if (last.length < 2) {
-    console.log("Veuillez entrer votre nom");
+    
     lastError.innerText = "Veuillez entrer 2 caractères ou plus pour le champ du prenom";
   } else {
-    console.log("Nom OK")
-    last.innerText = "";
+    lastError.innerText = "";
   }
   const email = document.getElementById("email").value;
-  console.log(email);
-  if (last.length < 2) {
-    console.log("Veuillez entrer votre adresse email");
+  if (email.length < 2) {
     emailError.innerText = "Veuillez entrer votre adresse email";
   } else {
-    console.log("email OK")
-    email.innerText = "";
+    emailError.innerText = "";
   }
   const birthdate = document.getElementById("birthdate").value;
-  console.log(birthdate);
-  if (last.length < 2) {
-    console.log("Veuillez entrer votre date de naissance");
+  if (birthdate.length < 2) {
     birthdateError.innerText = "Veuillez entrer votre date de naissance";
   } else {
-    console.log("birthdate OK")
-    birthdate.innerText = "";
+    birthdateError.innerText = "";
   }
   const quantity = document.getElementById("quantity").value;
-  console.log(quantity);
-  if (last.length < 2) {
-    console.log("Dans combien de tournois avez vous dejà participé");
+  
+  if (quantity.length ===0) {
     quantityError.innerText= "Veuillez indiquer le nombre de tournois";
   } else {
-    console.log("Nombre de tournois OK")
-    quantity.innerText = "";
+    quantityError.innerText = "";
   }
 
 
-  const location1 = document.getElementById("location1").value;
-  console.log(location1);
-  if (document.getElementById("location1").checked == true) {
-    console.log("Choix ville OK");
-    location1.innerText = "";
+  
+  if (checkLocation()) {
+    location1Error.innerText = "";
   } else {
-    console.log("Veuillez selectionner les villes. ")
     location1Error.innerText="Veuillez selectionner les villes.";
 
   }
-  const checkbox1 = document.getElementById("checkbox1").value;
-  console.log(checkbox1);
-  if (document.getElementById("checkbox1").checked == true) {
-    console.log("Acceptation OK");
-    checkbox1.innerText = "";
+  
+  const checkbox1 = document.getElementById("checkbox1").checked;
+  if (checkbox1) {
+    checkbox1Error.innerText = "";
   } else {
-    console.log("Veuillez lire et accepter les conditions d'utilisation. ")
     checkbox1Error.innerText="Veuillez lire et accepter les conditions d'utilisation.";
 
   }
 }
-const firstError = document.getElementById("firstError"); // on récupère le champ text dans lequel l'erreur sera affichée
-const lastError = document.getElementById("lastError");
-const btn1 = document.getElementById('btn1');
-const btn2 = document.getElementById('btn2');
 
-btn1.addEventListener('click', function (firstError) {
-  firstError.innerText = "Veuillez entrer 2 caractères ou plus pour le champ du prenom" // on met un texte dans le champ, affichant ainsi une erreur
-})
+function checkLocation() {
+  const locations = document.getElementsByName("location")
+  let resultat = false;
+  locations.forEach(location =>{
+    if(location.checked) {
+      resultat=true
+    }
+  })
+ return resultat  
+}
 
-btn2.addEventListener('click', function (firstError) {
-  firstError.innerText = "" // on met une string vide dans le champ, l'erreur ne sera donc pus visible
-})
-
-btn1.addEventListener('click', function (lastError) {
-  lastError.innerText = "Veuillez entrer 2 caractères ou plus pour le champ du nom" // on met un texte dans le champ, affichant ainsi une erreur
-})
-
-btn2.addEventListener('click', function (lastError) {
-  lastError.innerText = "" // on met une string vide dans le champ, l'erreur ne sera donc pus visible
-})
 
 
