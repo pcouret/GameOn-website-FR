@@ -31,7 +31,7 @@ function validate(event) {
   event.preventDefault();
   const first = document.getElementById("first").value;
   if (first.length < 2) {
-    
+
     firstError.innerText = "Veuillez entrer 2 caractères ou plus pour le champ du prenom";
   } else {
     firstError.innerText = "";
@@ -39,7 +39,7 @@ function validate(event) {
 
   const last = document.getElementById("last").value;
   if (last.length < 2) {
-    
+
     lastError.innerText = "Veuillez entrer 2 caractères ou plus pour le champ du nom";
   } else {
     lastError.innerText = "";
@@ -57,41 +57,60 @@ function validate(event) {
     birthdateError.innerText = "";
   }
   const quantity = document.getElementById("quantity").value;
-  
-  if (quantity.length ===0) {
-    quantityError.innerText= "Veuillez indiquer le nombre de tournois";
+
+  if (isNaN(quantity)===0) {
+    quantityError.innerText = "Veuillez indiquer le nombre de tournois";
   } else {
     quantityError.innerText = "";
   }
-
-
-  
+  if (quantity.length===0) {
+    quantityError.innerText = "Veuillez indiquer le nombre de tournois";
+  } else {
+    quantityError.innerText = "";
+  }
   if (checkLocation()) {
     location1Error.innerText = "";
   } else {
-    location1Error.innerText="Veuillez selectionner les villes.";
+    location1Error.innerText = "Veuillez selectionner les villes.";
 
   }
-  
+
+
+
   const checkbox1 = document.getElementById("checkbox1").checked;
   if (checkbox1) {
     checkbox1Error.innerText = "";
   } else {
-    checkbox1Error.innerText="Veuillez lire et accepter les conditions d'utilisation.";
+    checkbox1Error.innerText = "Veuillez lire et accepter les conditions d'utilisation.";
 
   }
+
 }
 
 function checkLocation() {
   const locations = document.getElementsByName("location")
   let resultat = false;
-  locations.forEach(location =>{
-    if(location.checked) {
-      resultat=true
+  locations.forEach(location => {
+    if (location.checked) {
+      resultat = true
     }
   })
- return resultat  
+  
+  return resultat;
+
+
 }
 
 
+function validateEmail(email) {
+  var emailReg = new RegExp(/^([\w-\.]+)@((?:[\w]+\.)+)(a-zA-Z]{2,4})/i);
+  var valid = emailReg.test(email);
+
+  if ((!valid)) {
+    emailError.innerText = "Veuillez entrer votre adresse email";
+  } else {
+    emailError.innerText = "";
+  }
+
+}
 
