@@ -58,7 +58,7 @@ function validate(event) {
   }
   const quantity = document.getElementById("quantity").value;
 
-  if (isNaN(quantity)===0) {
+  if (isNaN(quantity)) {
     quantityError.innerText = "Veuillez indiquer le nombre de tournois";
   } else {
     quantityError.innerText = "";
