@@ -63,7 +63,7 @@ function validate(event) {
   } else {
     quantityError.innerText = "";
   }
-  if (quantity.length===0) {
+  if (quantity.length === 0) {
     quantityError.innerText = "Veuillez indiquer le nombre de tournois";
   } else {
     quantityError.innerText = "";
@@ -95,7 +95,7 @@ function checkLocation() {
       resultat = true
     }
   })
-  
+
   return resultat;
 
 
@@ -114,3 +114,41 @@ function validateEmail(email) {
 
 }
 
+
+function cestparti(go) {
+
+  document.getElementById("inscription").addEventListener("submit", function(e) {
+
+    var erreur;
+
+    var inputs = document.getElementsByTagName("input");
+
+    for (var i = 0; i < inputs.length; i++) {
+      if (!inputs[i].value) {
+        erreur = "Veuillez renseigner tous les champs";
+      }
+
+    }
+
+    if (erreur) {
+      e.preventDefault();
+      document.getElementById("erreur").innerHTML = erreur;
+      return false;
+    } else {
+      alert('Formulaire envoyé !');
+    }
+
+
+    // var first = document.getElementById(first);
+    // var last = document.getElementById(last);
+    // var email = document.getElementById(email);
+    // var birthdate = document.getElementById(birthdate);
+    // var quantity = document.getElementById(quantity);
+    // var location = document.getElementById(location);
+    // var checkbox1 = document.getElementById(checkbox1);
+    // var checkbox2 = document.getElementById(checkbox2);
+
+
+  })
+
+}
