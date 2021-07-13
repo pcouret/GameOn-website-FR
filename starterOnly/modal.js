@@ -29,9 +29,10 @@ function launchModal() {
 
 function validate(event) {
   event.preventDefault();
+  eventError = false;
+
   const first = document.getElementById("first").value;
   if (first.length < 2) {
-
     firstError.innerText = "Veuillez entrer 2 caractères ou plus pour le champ du prenom";
   } else {
     firstError.innerText = "";
@@ -85,6 +86,13 @@ function validate(event) {
 
   }
 
+
+  if (eventError = true) {
+    goError.innerHTML = "Inscription refusée";
+    return false;
+  } else {
+    alert('Inscription validée');
+  }
 }
 
 function checkLocation() {
@@ -113,7 +121,6 @@ function validateEmail(email) {
   }
 
 }
-
 
 
 
