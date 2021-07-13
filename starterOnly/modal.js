@@ -87,7 +87,7 @@ function validate(event) {
   }
 
 
-  if (eventError = true) {
+  if (eventError === true) {
     goError.innerHTML = "Inscription refusée";
     return false;
   } else {
