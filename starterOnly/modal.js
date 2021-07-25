@@ -35,11 +35,12 @@ function closeModal() {
   form.style.display = "block";
     succes.style.display = "none";
 }
-
+// Ajout d'informations explicatives pour la documentations des cases
 function validate(event) {
   event.preventDefault();
   let eventError = false;
 
+  // inscrire le prenom
   const first = document.getElementById("first").value;
   if (first.length < 2) {
     eventError = true;
@@ -48,6 +49,7 @@ function validate(event) {
     firstError.innerText = "";
   }
 
+  // inscrire le nom
   const last = document.getElementById("last").value;
   if (last.length < 2) {
     eventError = true;
@@ -55,6 +57,8 @@ function validate(event) {
   } else {
     lastError.innerText = "";
   }
+
+  // ecrire adresse mail
   const email = document.getElementById("email").value;
   if (email.length < 2) {
     eventError = true;
@@ -62,6 +66,8 @@ function validate(event) {
   } else {
     emailError.innerText = "";
   }
+
+  // ajout date de naissance
   const birthdate = document.getElementById("birthdate").value;
   if (birthdate.length < 2) {
     eventError = true;
@@ -69,6 +75,8 @@ function validate(event) {
   } else {
     birthdateError.innerText = "";
   }
+
+  // nombre de participations à un tounois
   const quantity = document.getElementById("quantity").value;
 
   if (isNaN(quantity) || quantity<0 || quantity>99 ) {
@@ -86,8 +94,9 @@ function validate(event) {
   }
 
 
-
+  // accepter les conditions d'utilisation
   const checkbox1 = document.getElementById("checkbox1").checked;
+
   if (checkbox1) {
     checkbox1Error.innerText = "";
   } else {
@@ -106,6 +115,8 @@ function validate(event) {
   }
 }
 
+/* Ajout du nom de villes ou le tournois a eu lieu */
+
 function checkLocation() {
   const locations = document.getElementsByName("location")
   let resultat = false;
@@ -121,7 +132,7 @@ function checkLocation() {
 }
 
 /**
- * Verifiaction de l'email par rapport à la regex
+ * Verification de l'email par rapport à la regex
  * @param {*} email
  * @returns boolean 
  */
