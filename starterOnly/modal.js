@@ -35,7 +35,7 @@ function closeModal() {
   form.style.display = "block";
     succes.style.display = "none";
 }
-// verification si entrées valident
+// verification si les données entrées sont valide
 function validate(event) {
   event.preventDefault();
   let eventError = false;
