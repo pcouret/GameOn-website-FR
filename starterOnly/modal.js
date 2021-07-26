@@ -35,7 +35,7 @@ function closeModal() {
   form.style.display = "block";
     succes.style.display = "none";
 }
-// Ajout d'informations explicatives pour la documentations des cases
+// verification si entrées valident
 function validate(event) {
   event.preventDefault();
   let eventError = false;
