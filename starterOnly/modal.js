@@ -35,12 +35,12 @@ function closeModal() {
   form.style.display = "block";
     succes.style.display = "none";
 }
-// verification si les données entrées sont valide
+// verification si les données entrées sont valide ou affichage d'un message d'erreur
 function validate(event) {
   event.preventDefault();
   let eventError = false;
 
-  // inscrire le prenom
+  // inscrire le prenom avec un nombre de lettre supperieure à 2
   const first = document.getElementById("first").value;
   if (first.length < 2) {
     eventError = true;
@@ -49,7 +49,7 @@ function validate(event) {
     firstError.innerText = "";
   }
 
-  // inscrire le nom
+  // inscrire le nom avec un nombre de lettres supperieure à 2
   const last = document.getElementById("last").value;
   if (last.length < 2) {
     eventError = true;
@@ -58,7 +58,7 @@ function validate(event) {
     lastError.innerText = "";
   }
 
-  // ecrire adresse mail
+  // ecrire adresse mail avec un nombre de lettres superieure à 2
   const email = document.getElementById("email").value;
   if (email.length < 2) {
     eventError = true;
@@ -67,7 +67,7 @@ function validate(event) {
     emailError.innerText = "";
   }
 
-  // ajout date de naissance
+  // ajout date de naissance avec un nombre de lettres sup à 2
   const birthdate = document.getElementById("birthdate").value;
   if (birthdate.length < 2) {
     eventError = true;
@@ -76,7 +76,7 @@ function validate(event) {
     birthdateError.innerText = "";
   }
 
-  // nombre de participations à un tounois
+  // nombre de participations à un tounois , indiquez le nombre de participations à un tournois
   const quantity = document.getElementById("quantity").value;
 
   if (isNaN(quantity) || quantity<0 || quantity>99 ) {
@@ -85,7 +85,7 @@ function validate(event) {
   } else {
     quantityError.innerText = "";
   }
-  
+  // selectionner les villes ou j'ai participé.
   if (checkLocation()) {
     location1Error.innerText = "";
   } else {
@@ -94,7 +94,7 @@ function validate(event) {
   }
 
 
-  // accepter les conditions d'utilisation
+  // accepter les conditions d'utilisation ou affichage message d'erreur
   const checkbox1 = document.getElementById("checkbox1").checked;
 
   if (checkbox1) {
