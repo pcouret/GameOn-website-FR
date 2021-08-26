@@ -21,6 +21,7 @@ const succes = document.getElementById("succes");
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // close modal
 close.forEach((btn) => btn.addEventListener("click", closeModal));
+document.getElementById("close").addEventListener("click", closeModal);
 
 // launch modal form
 function launchModal() {
